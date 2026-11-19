@@ -95,7 +95,12 @@ int main(int argc, char* argv[])
 
     GS gs;
     gs.parseAttributes(numGaussians, positions, rotations, scales, opacities, features_diffuse, features_specular, 3);
-    delete[] positions, rotations, scales, opacities, features_diffuse, features_specular;
+    delete[] positions;
+    delete[] rotations;
+    delete[] scales;
+    delete[] opacities;
+    delete[] features_diffuse;
+    delete[] features_specular;
     
     if (decoderParams.outputBinaryPly){
         writeFile(decoderParams.reconstructedDataPath, gs);
